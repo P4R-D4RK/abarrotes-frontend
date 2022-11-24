@@ -1,0 +1,72 @@
+<mat-card>
+  <mat-card-title>Productos</mat-card-title>
+
+  <mat-card-content>
+    <table mat-table [dataSource]="orders" class="full-width">
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef>Producto</th>
+        <th mat-cell *matCellDef="let order">{{ order.product.name }}</th>
+      </ng-container>
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+        <th mat-cell *matCellDef="let order">
+          {{ order.quantity }}
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Precio</th>
+        <th mat-cell *matCellDef="let order">
+          {{ order.product.unitPrice | currency: "MX" }}
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Importe</th>
+        <th mat-cell *matCellDef="let order">
+          {{ order.product.unitPrice * order.quantity | currency: "MX" }}
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <th mat-cell *matCellDef="let order">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openDialog(order.id, order.quantity)"
+          >
+            <mat-icon class="icons">edit</mat-icon>
+            Editar
+          </button>
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <th mat-cell *matCellDef="let order">
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteOrder(order.id)"
+          >
+            <mat-icon class="icons">delete</mat-icon>Eliminar
+          </button>
+        </th>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+<div>
+  <button
+    mat-raised-button
+    color="primary"
+    style="float: right; margin: 10px 10px 0 0"
+    (click)="buyShoppingCart()"
+  >
+    <mat-icon class="icons">shopping_cart</mat-icon>
+    Comprar todo mi carrito
+  </button>
+  <h1 style="float: right; margin: 10px 40px 30px 0">
+    Total: {{ total | currency: "MX" }}
+  </h1>
+</div>

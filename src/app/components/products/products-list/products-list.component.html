@@ -1,0 +1,115 @@
+<!-- Inventario -->
+<div *ngIf="admin">
+  <mat-card>
+    <mat-card-title
+      >Productos<button
+        mat-raised-button
+        color="primary"
+        class="end"
+        (click)="openDialognew()"
+      >
+        Agregar
+      </button></mat-card-title
+    >
+
+    <mat-card-content>
+      <table mat-table [dataSource]="products" class="full-width">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <th mat-cell *matCellDef="let product">{{ product.name }}</th>
+        </ng-container>
+        <ng-container matColumnDef="brand">
+          <th mat-header-cell *matHeaderCellDef>Marca</th>
+          <th mat-cell *matCellDef="let product">
+            {{ product.brand }}
+          </th>
+        </ng-container>
+        <ng-container matColumnDef="existence">
+          <th mat-header-cell *matHeaderCellDef>Existencia</th>
+          <th mat-cell *matCellDef="let product">
+            {{ product.existence }}
+          </th>
+        </ng-container>
+        <ng-container matColumnDef="unitPrice">
+          <th mat-header-cell *matHeaderCellDef>Precio por unidad</th>
+          <th mat-cell *matCellDef="let product">
+            {{ product.unitPrice | currency: "MX" }}
+          </th>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef>Editar</th>
+          <th mat-cell *matCellDef="let product">
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="openDialog(product.id)"
+            >
+              <mat-icon class="icons">edit</mat-icon>
+              Editar
+            </button>
+          </th>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+          <th mat-cell *matCellDef="let product">
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="deleteProduct(product.id)"
+            >
+              <mat-icon class="icons">delete</mat-icon>Eliminar
+            </button>
+          </th>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Lista de productos a comprar -->
+<div *ngIf="!admin">
+  <h1>Productos</h1>
+  <div fxLayout="row" fxLayoutGap="12px" [style.margin-top]="'12px'">
+    <mat-card
+      *ngFor="let product of products"
+      style="display: inline-block; margin-left: 10px; width: 200px"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>{{ product.brand }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <h3>{{ product.description }}</h3>
+        <p>
+          <strong>Precio: </strong> {{ product.unitPrice | currency: "MX" }}
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions class="end">
+        <p>Cantidad</p>
+        <mat-form-field class="cant"
+          ><input type="number" matInput value="0" [formControl]="quantity"
+        /></mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          style="margin-bottom: 10px"
+          (click)="addProduct(product.id!)"
+        >
+          <mat-icon class="icons">add_shopping_cart</mat-icon>Agregar al carrito
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          style="width: 80%"
+          (click)="directBuyOrder(product.id!)"
+        >
+          <mat-icon class="icons">shopping_cart</mat-icon>Comprar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

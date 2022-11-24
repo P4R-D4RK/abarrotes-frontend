@@ -1,0 +1,118 @@
+<h1 mat-dialog-title>Empleado {{ employeeFormControl.controls.name.value }}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="employeeFormControl.controls.name"
+    />
+  </mat-form-field>
+  <p>Primer apellido</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="employeeFormControl.controls.firstLastName"
+    />
+  </mat-form-field>
+  <p>Segundo apellido</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="employeeFormControl.controls.secondLastName"
+    />
+  </mat-form-field>
+  <p>Email</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="email"
+      matInput
+      [formControl]="employeeFormControl.controls.email"
+    />
+  </mat-form-field>
+  <p>Contraseña</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="password"
+      matInput
+      [formControl]="employeeFormControl.controls.password"
+    />
+  </mat-form-field>
+  <p>Fecha de nacimiento</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="date"
+      matInput
+      [formControl]="employeeFormControl.controls.birthday"
+    />
+  </mat-form-field>
+  <p>RFC</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="employeeFormControl.controls.rfc"
+    />
+  </mat-form-field>
+  <p>Salary</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="number"
+      matInput
+      [formControl]="employeeFormControl.controls.salary"
+    />
+  </mat-form-field>
+  <p>Estado civil</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="employeeFormControl.controls.maritalStatus"
+    />
+  </mat-form-field>
+  <p>Educación</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="employeeFormControl.controls.education"
+    />
+  </mat-form-field>
+  <p>Administrador</p>
+  <input
+    type="checkbox"
+    [formControl]="employeeFormControl.controls.administrator"
+  />
+</div>
+<div mat-dialog-actions>
+  <div class="half"></div>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button
+    *ngIf="newEmployee"
+    mat-raised-button
+    color="primary"
+    (click)="submitEmployee()"
+  >
+    Agregar
+  </button>
+  <button
+    *ngIf="!newEmployee"
+    mat-raised-button
+    color="accent"
+    (click)="updateEmployee()"
+  >
+    Actualizar
+  </button>
+  <!-- <button mat-raised-button color="accent">Actualizar</button> -->
+</div>

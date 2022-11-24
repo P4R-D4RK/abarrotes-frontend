@@ -1,0 +1,85 @@
+<h1 mat-dialog-title>Cliente {{ clientFormControl.controls.name.value }}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="clientFormControl.controls.name"
+    />
+  </mat-form-field>
+  <p>Primer apellido</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="clientFormControl.controls.firstLastName"
+    />
+  </mat-form-field>
+  <p>Segundo apellido</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="clientFormControl.controls.secondLastName"
+    />
+  </mat-form-field>
+  <p>Email</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="email"
+      matInput
+      [formControl]="clientFormControl.controls.email"
+    />
+  </mat-form-field>
+  <p>Contraseña</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="password"
+      matInput
+      [formControl]="clientFormControl.controls.password"
+    />
+  </mat-form-field>
+  <p>Fecha de nacimiento</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="date"
+      matInput
+      [formControl]="clientFormControl.controls.birthday"
+    />
+  </mat-form-field>
+  <p>RFC</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="clientFormControl.controls.rfc"
+    />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <div class="half"></div>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button
+    *ngIf="newClient"
+    mat-raised-button
+    color="primary"
+    (click)="submitClient()"
+  >
+    Agregar
+  </button>
+  <button
+    *ngIf="!newClient"
+    mat-raised-button
+    color="accent"
+    (click)="updateClient()"
+  >
+    Actualizar
+  </button>
+</div>

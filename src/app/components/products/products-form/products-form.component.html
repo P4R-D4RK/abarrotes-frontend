@@ -1,0 +1,103 @@
+<h1 mat-dialog-title>Producto {{ productFormControl.controls.name.value }}</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="productFormControl.controls.name"
+    />
+  </mat-form-field>
+  <p>Descripción</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="productFormControl.controls.description"
+    />
+  </mat-form-field>
+  <p>Presentación</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="productFormControl.controls.presentation"
+    />
+  </mat-form-field>
+  <p>Fecha de caducidad</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="date"
+      matInput
+      [formControl]="productFormControl.controls.expiration"
+    />
+  </mat-form-field>
+  <p>Precio de proveedor</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="number"
+      matInput
+      [formControl]="productFormControl.controls.providerPrice"
+    />
+  </mat-form-field>
+  <p>Precio unitario</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="number"
+      matInput
+      [formControl]="productFormControl.controls.unitPrice"
+    />
+  </mat-form-field>
+  <p>Existencia</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="number"
+      matInput
+      [formControl]="productFormControl.controls.existence"
+    />
+  </mat-form-field>
+  <p>Fecha</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="date"
+      matInput
+      [formControl]="productFormControl.controls.date"
+    />
+  </mat-form-field>
+  <p>Marca</p>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label></mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="productFormControl.controls.brand"
+    />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <div class="half"></div>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button
+    *ngIf="newProduct"
+    mat-raised-button
+    color="primary"
+    (click)="submitProduct()"
+  >
+    Agregar
+  </button>
+  <button
+    *ngIf="!newProduct"
+    mat-raised-button
+    color="accent"
+    (click)="updateProduct()"
+  >
+    Actualizar
+  </button>
+</div>

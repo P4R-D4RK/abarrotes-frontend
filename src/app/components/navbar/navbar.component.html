@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="mat-elevation-z4">
+  <span
+    ><mat-icon class="icons">shopping_cart</mat-icon>Abarrotes "El Compi"</span
+  >
+
+  <div class="spacer"></div>
+  <a mat-button routerLink="home">Inicio</a>
+  <a mat-button routerLink="products" *ngIf="user.role == 'administrator' || user.role == 'employee'">Inventario</a>
+  <a mat-button routerLink="products" *ngIf="user.role == 'client'">Productos</a>
+  <a mat-button routerLink="clients" *ngIf="user.role == 'administrator'">Clientes</a>
+  <a mat-button routerLink="employees" *ngIf="user.role == 'administrator'">Empleados</a>
+  <a mat-button routerLink="shoppingCart" *ngIf="user.role == 'client'">Carrito</a>
+  <a mat-button routerLink="login" *ngIf="user.role == 'all'">Ingresar</a>
+  <a mat-raised-button color="accent" routerLink="register" *ngIf="user.role == 'all'">Regístrate</a>
+  <a mat-raised-button color="warn" routerLink="login" *ngIf="user.role != 'all'"><mat-icon class="icons">exit_to_app</mat-icon>Cerrar Sesión</a>
+</mat-toolbar>

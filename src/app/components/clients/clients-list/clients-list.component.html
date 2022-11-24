@@ -1,0 +1,66 @@
+<mat-card>
+  <mat-card-title
+    >Clientes<button
+      mat-raised-button
+      color="primary"
+      class="end"
+      (click)="openDialognew()"
+    >
+      Agregar
+    </button></mat-card-title
+  >
+
+  <mat-card-content>
+    <table mat-table [dataSource]="clients" class="full-width">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <th mat-cell *matCellDef="let client">{{ client.name }}</th>
+      </ng-container>
+      <ng-container matColumnDef="firstLastName">
+        <th mat-header-cell *matHeaderCellDef>Primer apellido</th>
+        <th mat-cell *matCellDef="let client">
+          {{ client.firstLastName }}
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="secondLastName">
+        <th mat-header-cell *matHeaderCellDef>Segundo apellido</th>
+        <th mat-cell *matCellDef="let client">
+          {{ client.secondLastName }}
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <th mat-cell *matCellDef="let client">
+          {{ client.email }}
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <th mat-cell *matCellDef="let client">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openDialog(client.id)"
+          >
+            <mat-icon class="icons">edit</mat-icon>
+            Editar
+          </button>
+        </th>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <th mat-cell *matCellDef="let client">
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteClient(client.id)"
+          >
+            <mat-icon class="icons">delete</mat-icon>Eliminar
+          </button>
+        </th>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

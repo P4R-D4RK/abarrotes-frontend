@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Cantidad</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Cantidad</mat-label>
+    <input type="number" matInput [formControl]="quantity" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <div class="half"></div>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button color="accent" (click)="updateOrder()">
+    Actualizar
+  </button>
+</div>

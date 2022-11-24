@@ -1,0 +1,32 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "tsconfig.spec.json": true,
+        "tsconfig.app.json": true,
+        "package-lock.json": true,
+        "karma.conf.js": true,
+        "angular.json": true,
+        ".editorconfig": true,
+        ".browserslistrc": true,
+        ".vscode": true,
+        "node_modules": true,
+        ".angular": true
+    },
+    "hide-files.files": [
+        "tsconfig.spec.json",
+        "tsconfig.app.json",
+        "package-lock.json",
+        "karma.conf.js",
+        "angular.json",
+        ".editorconfig",
+        ".browserslistrc",
+        ".vscode",
+        "node_modules",
+        ".angular"
+    ]
+}

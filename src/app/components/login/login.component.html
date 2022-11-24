@@ -1,0 +1,28 @@
+<div class="center">
+  <h1 mat-dialog-title>Inicar sesión</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill" class="mid-width">
+      <mat-label>Nombre</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="userFormControl.controls.email"
+      />
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="fill" class="mid-width">
+      <mat-label>Contraseña</mat-label>
+      <input
+        type="password"
+        matInput
+        [formControl]="userFormControl.controls.password"
+      />
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <div class="half"></div>
+    <button mat-raised-button color="primary" (click)="login()">
+      Ingresar
+    </button>
+  </div>
+</div>

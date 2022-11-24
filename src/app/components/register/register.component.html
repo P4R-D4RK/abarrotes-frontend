@@ -1,0 +1,81 @@
+<div style="text-align: center">
+  <h1 mat-dialog-title>Cliente {{ clientFormControl.controls.name.value }}</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="clientFormControl.controls.name"
+      />
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Primer Apellido</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="clientFormControl.controls.firstLastName"
+      />
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Segundo apellido</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="clientFormControl.controls.secondLastName"
+      />
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        [formControl]="clientFormControl.controls.email"
+      />
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input
+        type="password"
+        matInput
+        [formControl]="clientFormControl.controls.password"
+      />
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input
+        type="date"
+        matInput
+        [formControl]="clientFormControl.controls.birthday"
+      />
+    </mat-form-field>
+    <p></p>
+    <mat-form-field appearance="fill">
+      <mat-label>RFC</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="clientFormControl.controls.rfc"
+      />
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <div class="half"></div>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-right: 10px"
+        routerLink="login"
+      >
+        Regresar
+      </button>
+      <button mat-raised-button color="accent" (click)="createClient()">
+        Crear
+      </button>
+    </div>
+  </div>
+</div>
